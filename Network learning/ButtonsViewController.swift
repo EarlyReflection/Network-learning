@@ -35,6 +35,44 @@ class ButtonsViewController: UIViewController {
     }
     
     @IBAction func postRequest(_ sender: Any) {
+        
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        
+        // создаем словарь для примера
+        let userData = ["Course" : "Networking", "Lession" : "GET and POST requests"]
+        
+        // создаем экземпляр класса URLRequest
+        var request = URLRequest(url: url)
+        
+        // определяем тип запроса
+        request.httpMethod = "POST"
+        
+        //преобразовываем словаря в JSON формат
+        guard let myJSON = try? JSONSerialization.data(withJSONObject: userData, options: []) else { return }
+        
+        //помещаем json в тело запроса
+        request.httpBody = myJSON
+        
+        //создаем правило добавления новых записей, он правильно отображает наш словарь
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //создание сессии для отправки данных на сервер
+        let session = URLSession.shared
+        
+        //вызываем у экземпляра метод dataTask c инициализатором URLRequest
+        session.dataTask(with: request) { data, responce, error in
+            
+            //тут мы смотрим ответ от сервера
+            guard let responce = responce, let data = data else { return }
+            
+            print(responce)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
+        }.resume()
     }
-    
 }
