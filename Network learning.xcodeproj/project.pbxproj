@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10FE6272915BCC400FDD7A6 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10FE6262915BCC400FDD7A6 /* CoursesViewController.swift */; };
+		D10FE6292915C0C200FDD7A6 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10FE6282915C0C200FDD7A6 /* CourseCell.swift */; };
+		D10FE62B2915C7C400FDD7A6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10FE62A2915C7C400FDD7A6 /* Course.swift */; };
+		D10FE62D291697A600FDD7A6 /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10FE62C291697A600FDD7A6 /* WebsiteDescription.swift */; };
 		D13DBCF6291431EC004B1385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DBCF5291431EC004B1385 /* AppDelegate.swift */; };
 		D13DBCF8291431EC004B1385 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DBCF7291431EC004B1385 /* SceneDelegate.swift */; };
 		D13DBCFA291431EC004B1385 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13DBCF9291431EC004B1385 /* ImageViewController.swift */; };
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D10FE6262915BCC400FDD7A6 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		D10FE6282915C0C200FDD7A6 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		D10FE62A2915C7C400FDD7A6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		D10FE62C291697A600FDD7A6 /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
 		D13DBCF2291431EC004B1385 /* Network learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network learning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DBCF5291431EC004B1385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D13DBCF7291431EC004B1385 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +89,10 @@
 		D13DBCE9291431EC004B1385 = {
 			isa = PBXGroup;
 			children = (
+				D10FE6282915C0C200FDD7A6 /* CourseCell.swift */,
+				D10FE6262915BCC400FDD7A6 /* CoursesViewController.swift */,
+				D10FE62A2915C7C400FDD7A6 /* Course.swift */,
+				D10FE62C291697A600FDD7A6 /* WebsiteDescription.swift */,
 				D13DBCF4291431EC004B1385 /* Network learning */,
 				D13DBD0B291431F0004B1385 /* Network learningTests */,
 				D13DBD15291431F0004B1385 /* Network learningUITests */,
@@ -261,10 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10FE6292915C0C200FDD7A6 /* CourseCell.swift in Sources */,
+				D10FE62B2915C7C400FDD7A6 /* Course.swift in Sources */,
+				D10FE62D291697A600FDD7A6 /* WebsiteDescription.swift in Sources */,
 				D13DBD2629145234004B1385 /* ButtonsViewController.swift in Sources */,
 				D13DBCFA291431EC004B1385 /* ImageViewController.swift in Sources */,
 				D13DBCF6291431EC004B1385 /* AppDelegate.swift in Sources */,
 				D13DBCF8291431EC004B1385 /* SceneDelegate.swift in Sources */,
+				D10FE6272915BCC400FDD7A6 /* CoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

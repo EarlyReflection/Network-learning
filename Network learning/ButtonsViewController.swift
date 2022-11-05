@@ -36,6 +36,7 @@ class ButtonsViewController: UIViewController {
     
     @IBAction func postRequest(_ sender: Any) {
         
+        // создание url адреса с прверокй на валиднсть через guard let
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
         
         // создаем словарь для примера
