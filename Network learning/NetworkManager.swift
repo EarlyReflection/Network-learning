@@ -1,17 +1,17 @@
 //
-//  ButtonsViewController.swift
+//  NetworkManager.swift
 //  Network learning
 //
-//  Created by Vladimir Dvornikov on 03.11.2022.
+//  Created by Vladimir Dvornikov on 06.11.2022.
 //
 
 import UIKit
 
-class ButtonsViewController: UIViewController {
+class NetworkManager {
     
-    @IBAction func getRequest(_ sender: Any) {
+    static func getRequest(url: String) {
         
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        guard let url = URL(string: url) else { return }
         let session = URLSession.shared
         session.dataTask(with: url) { data, responce, error in
             
@@ -29,15 +29,14 @@ class ButtonsViewController: UIViewController {
             } catch {
                 print(error)
             }
-            
         }.resume()
-        
     }
     
-    @IBAction func postRequest(_ sender: Any) {
+    
+    static func postRequest(url: String) {
         
         // создание url адреса с прверокй на валиднсть через guard let
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        guard let url = URL(string: url) else { return }
         
         // создаем словарь для примера
         let userData = ["Course" : "Networking", "Lession" : "GET and POST requests"]
@@ -76,4 +75,41 @@ class ButtonsViewController: UIViewController {
             }
         }.resume()
     }
+    
+    static func downloadImage(url: String, completition: @escaping (_ image: UIImage)->Void) {
+        // создание url адреса с прверокй на валиднсть через guard let
+        guard let url = URL(string: url) else { return }
+        
+        //создаем экземпляр URLsession
+        let session = URLSession.shared
+        
+        //вызываем у экземпляра метод dataTask with completionHandler, метод создает задачу на получение содержмого по указанному адресу и возвращает его в completionHandler
+        session.dataTask(with: url) { data, responce, error in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                   completition(image)
+                }
+            }
+        }.resume()
+    }
+    
+    static func fetchData(url: String, completition: @escaping (_ course: [Course])->Void) {
+      
+        guard let url = URL(string: url) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let courses = try decoder.decode([Course].self, from: data)
+                completition(courses)
+            } catch let error{
+                print("Error serialisation json", error)
+            }
+        }.resume()
+    }
+    
 }
